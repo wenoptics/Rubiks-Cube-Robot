@@ -1,0 +1,2 @@
+int state_currentRotatePosition;
+int state_currentPlatformPosition;
