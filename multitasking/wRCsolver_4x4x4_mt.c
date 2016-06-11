@@ -66,20 +66,20 @@ task main()
                 nxtDisplayString(2, "<-Behind Front->");
 
                 if(nNxtButtonPressed == BTN_Right_Arrow) {
-                    action_RTrotateToFront();
-                    //action_LS_turn_90();
+                    //action_RTrotateToFront();
+                    action_LS_turn_90();
 
                     break;
                 }
                 if(nNxtButtonPressed == BTN_Left_Arrow) {
-                    action_RTrotateToBehind();
-                    //action_LS_turn_90i();
+                    //action_RTrotateToBehind();
+                    action_LS_turn_90i();
 
                     break;
                 }
 
                 if(nNxtButtonPressed == BTN_Orange_Square) {
-                    action_RTrotateToLean();
+                    //action_RTrotateToLean();
                     //swingTheLS();
                     break;
                 }

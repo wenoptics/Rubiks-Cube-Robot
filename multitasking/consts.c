@@ -31,6 +31,8 @@ const int ENCODERvAL_LS_ARRAY[] = {
     -1110       // LS4
 };
 
+const int PT_findCube_maxEncoderVal = -800;
+const int PT_moveDown_afterDettach_EncoderVal = 310;
 
 const int msForMultiTasking = 50;
 

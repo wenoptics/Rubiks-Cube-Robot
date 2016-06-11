@@ -31,7 +31,7 @@ void action_RTrotateToLean() {
             break;
         case STATE_ROTATE_AT_BEHIND:
             setAngleRelative(motorRotate,  58*tRatioRT,  30);
-            break;            
+            break;
         case STATE_ROTATE_AT_LEAN:
             return;
         default:
@@ -48,9 +48,9 @@ void action_RTrotateToBehind() {
             setAngleRelative(motorRotate, -70*tRatioRT, -30);
             RTrotateToPosition(motorRotate, -1);
             break;
-        case STATE_ROTATE_AT_LEAN:            
+        case STATE_ROTATE_AT_LEAN:
             RTrotateToPosition(motorRotate, -1);
-            break;            
+            break;
         case STATE_ROTATE_AT_BEHIND:
             return;
         default:
@@ -66,9 +66,9 @@ void action_RTrotateToFront() {
             setAngleRelative(motorRotate, 70*tRatioRT, 30);
             RTrotateToPosition(motorRotate, 1);
             break;
-        case STATE_ROTATE_AT_LEAN:            
+        case STATE_ROTATE_AT_LEAN:
             RTrotateToPosition(motorRotate, 1);
-            break;            
+            break;
         case STATE_ROTATE_AT_INIT:
             return;
         default:
@@ -81,8 +81,15 @@ void action_RTrotateToFront() {
 
 //////////////////////////////////////////  PT  //////////////////////////////////////////
 
+/// get the layer value of which PT is currently at
+///     i.e. LS1
+///     return the "n" of LS
+inline int getCurrentPT_LS() {
+    return (state_currentPlatformPosition - STATE_PLATFORM_AT_LS1 + 1);
+}
+
 inline int currentPT_to_LS1_Val() {
-    int index = state_currentPlatformPosition - STATE_PLATFORM_AT_LS1 + 1;
+    int index = getCurrentPT_LS();
     return ENCODERvAL_LS_ARRAY[index];
 }
 
@@ -149,7 +156,7 @@ bool action_PT_up_fromBottom_toLSn(int n) {
         while ( ! isCubeAttachedPT() ) {
             encoderVal = nMotorEncoder[motorPlatform];
 
-            if (encoderVal < -800) {
+            if (encoderVal < PT_findCube_maxEncoderVal) {
             	// move up a distance still
                 // 		no cube? bad situation.
                 break;
@@ -244,7 +251,7 @@ void action_PT_down_toBottomLimit(bool ignoreCurrentPos=false) {
 
     // the cube is landed on the RT shelf,
     //      hide(move down) the platform;
-    setAngleRelative(motorPlatform, 310, 80);
+    setAngleRelative(motorPlatform, PT_moveDown_afterDettach_EncoderVal, 80);
 
     state_currentPlatformPosition = STATE_PLATFORM_AT_BOTTOM_LIMIT;
 
@@ -258,6 +265,9 @@ void action_PT_fromLS_toLS(int LSfrom, int LSto) {
 
     //if(! isCubeAttached())
     //  return;
+
+		if (LSfrom == LSto)
+			return;
 
     int encoderVal = ENCODERvAL_LS_ARRAY[LSto] - ENCODERvAL_LS_ARRAY[LSfrom];
 
@@ -379,7 +389,7 @@ void LSRotateToPosition(int motorName, int direction, int maxFindAngle=40*tRatio
 
 }
 
-void action_LS_turn_90() {
+void action_LS_turn_90i() {
     bool hasLoad =
         (state_currentPlatformPosition >= STATE_PLATFORM_AT_LS1);
 
@@ -404,7 +414,7 @@ void action_LS_turn_90() {
 
 }
 
-void action_LS_turn_90i() {
+void action_LS_turn_90() {
     bool hasLoad =
         (state_currentPlatformPosition >= STATE_PLATFORM_AT_LS1);
 

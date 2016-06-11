@@ -141,8 +141,70 @@ void unite_PT_down_toLimit(int laterSetRTdstTo = state_currentRotatePosition) {
 
     // the cube is landed on the RT shelf,
     //      hide(move down) the platform;
-    setAngleRelative(motorPlatform, 310, 80);
+    setAngleRelative(motorPlatform, PT_moveDown_afterDettach_EncoderVal, 80);
 
     state_currentPlatformPosition = STATE_PLATFORM_AT_BOTTOM_LIMIT;
+
+}
+
+bool unite_PT_holdTheCube_thenRotateRT(int toRT) {
+
+    const int edVal_goAfterAttach = 100;
+
+    action_PT_goUp();
+    while ( ! isCubeAttachedPT() ) {
+
+        if ( nMotorEncoder[motorPlatform] < PT_findCube_maxEncoderVal ) {
+            // move up a distance still
+            //      no cube? bad situation.
+            break;
+        }
+        wait1Msec(msForMultiTasking);
+    }
+
+    if ( ! isCubeAttachedPT() ) {
+        action_PT_stop();
+        // nothing hit? I assume there's no cube on the platform!
+        PlaySound(soundException);
+        wait1Msec(600);
+
+        // move the platform to the origin position
+        setAngleRelative(motorPlatform, -nMotorEncoder[motorPlatform], 95);
+        return false;
+
+    } else {
+        switch (toRT) {
+            case STATE_ROTATE_AT_INIT  :
+                StartTask(task_RT_rotateToFront);
+            break;
+            case STATE_ROTATE_AT_BEHIND:
+                StartTask(task_RT_rotateToBehind);
+            break;
+            //case STATE_ROTATE_AT_LEAN  :
+            //    StartTask(task_RT_rotateToLean);
+            //break;
+        }
+
+        // the platform now just hit the cube        
+        setAngleRelative(motorPlatform, edVal_goAfterAttach, 80);
+
+        // wait for the RT rotation completed
+        while ( state_currentRotatePosition != toRT) {
+            wait1Msec(msForMultiTasking);
+        }
+
+        // land the cube        
+        action_PT_goDown();
+        while ( isCubeAttachedPT() ) { }
+        action_PT_stop();        
+    
+        // the cube is landed on the RT shelf,
+        //      hide(move down) the platform;
+        setAngleRelative(motorPlatform, PT_moveDown_afterDettach_EncoderVal, 80);
+
+    }
+
+
+  
 
 }
