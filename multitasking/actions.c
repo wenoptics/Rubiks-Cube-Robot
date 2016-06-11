@@ -342,6 +342,10 @@ void LSRotateToPosition(int motorName, int direction, int maxFindAngle=40*tRatio
                 _maxAngle = maxAngle;
             }
 
+            // TODO: in every turn, we record the maxim value,
+            //      in next turn, we should at least turn to that value
+            //      (reliability promise)
+
             wait1Msec(msForMultiTasking);
 
             if (abs(nMotorEncoder[motorLS]) > _maxAngle) {
