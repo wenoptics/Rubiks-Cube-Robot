@@ -15,12 +15,19 @@ const int motorLS 			= motorC;
 
 ///////////////////////////////////////////////////////////
 
+// a 67x67mm size Rubik's Revenge
+#define RRCubeSize_67
+#undef RRCubeSize_67
+// a 64x64mm size Rubik's Revenge
+#define RRCubeSize_64
+
 const float tRatioRT = (float)56 / 23;
 const float tRatioLS = (float)40 / 8;
 
 const int rotateLimitLightThreshold = 76;
 const int LSRotateLightThreshold = 65;
 
+#ifdef RRCubeSize_67
 const int ENCODERvAL_LS_BASE = -1750;
 const int ENCODERvAL_LS_ARRAY[] = {
     ENCODERvAL_LS_BASE,
@@ -30,6 +37,18 @@ const int ENCODERvAL_LS_ARRAY[] = {
     -730,       // LS3
     -1110       // LS4
 };
+#endif
+#ifdef RRCubeSize_64
+const int ENCODERvAL_LS_BASE = -1900;
+const int ENCODERvAL_LS_ARRAY[] = {
+    ENCODERvAL_LS_BASE,
+    // Below is the increasement value of LS
+    0,          // LS1
+    -350,       // LS2
+    -700,       // LS3
+    -1050       // LS4
+};
+#endif
 
 const int PT_findCube_maxEncoderVal = -800;
 const int PT_moveDown_afterDettach_EncoderVal = 310;

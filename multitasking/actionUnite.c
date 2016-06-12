@@ -149,7 +149,7 @@ void unite_PT_down_toLimit(int laterSetRTdstTo = state_currentRotatePosition) {
 
 bool unite_PT_holdTheCube_thenRotateRT(int toRT) {
 
-    const int edVal_goAfterAttach = 100;
+    const int edVal_goAfterAttach = -240;
 
     action_PT_goUp();
     while ( ! isCubeAttachedPT() ) {
@@ -189,15 +189,19 @@ bool unite_PT_holdTheCube_thenRotateRT(int toRT) {
         setAngleRelative(motorPlatform, edVal_goAfterAttach, 80);
 
         // wait for the RT rotation completed
-        while ( state_currentRotatePosition != toRT) {
+        while ( state_currentRotatePosition != toRT ) {
             wait1Msec(msForMultiTasking);
         }
 
+        wait1Msec(400);
+
         // land the cube        
         action_PT_goDown();
-        while ( isCubeAttachedPT() ) { }
+        while ( isCubeAttachedPT() ) {
+            wait1Msec(msForMultiTasking);
+        }
         action_PT_stop();        
-    
+
         // the cube is landed on the RT shelf,
         //      hide(move down) the platform;
         setAngleRelative(motorPlatform, PT_moveDown_afterDettach_EncoderVal, 80);
