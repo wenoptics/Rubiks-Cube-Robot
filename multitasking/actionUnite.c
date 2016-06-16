@@ -185,7 +185,7 @@ bool unite_PT_holdTheCube_thenRotateRT(int toRT) {
             //break;
         }
 
-        // the platform now just hit the cube        
+        // the platform now just hit the cube
         setAngleRelative(motorPlatform, edVal_goAfterAttach, 80);
 
         // wait for the RT rotation completed
@@ -195,12 +195,12 @@ bool unite_PT_holdTheCube_thenRotateRT(int toRT) {
 
         wait1Msec(400);
 
-        // land the cube        
+        // land the cube
         action_PT_goDown();
         while ( isCubeAttachedPT() ) {
             wait1Msec(msForMultiTasking);
         }
-        action_PT_stop();        
+        action_PT_stop();
 
         // the cube is landed on the RT shelf,
         //      hide(move down) the platform;
@@ -208,7 +208,6 @@ bool unite_PT_holdTheCube_thenRotateRT(int toRT) {
 
     }
 
-
-  
+		return true;
 
 }

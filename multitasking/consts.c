@@ -22,11 +22,15 @@ const int motorLS 			= motorC;
 #define RRCubeSize_64
 
 const float tRatioRT = (float)56 / 23;
-const float tRatioLS = (float)40 / 8;
+const float tRatioLS = (float)56 / 8;
 
 const int rotateLimitLightThreshold = 76;
 const int LSRotateLightThreshold = 65;
+const int LSRotateLightCandidateThreshold = 60;
 
+const int LSRotateExtraGap = 160;
+
+//////////// for a larger 4x4x4 cube ////////////
 #ifdef RRCubeSize_67
 const int ENCODERvAL_LS_BASE = -1750;
 const int ENCODERvAL_LS_ARRAY[] = {
@@ -38,8 +42,9 @@ const int ENCODERvAL_LS_ARRAY[] = {
     -1110       // LS4
 };
 #endif
+//////////////////////////////////////////////////
 #ifdef RRCubeSize_64
-const int ENCODERvAL_LS_BASE = -1900;
+const int ENCODERvAL_LS_BASE = -1800;
 const int ENCODERvAL_LS_ARRAY[] = {
     ENCODERvAL_LS_BASE,
     // Below is the increasement value of LS
@@ -51,7 +56,7 @@ const int ENCODERvAL_LS_ARRAY[] = {
 #endif
 
 const int PT_findCube_maxEncoderVal = -800;
-const int PT_moveDown_afterDettach_EncoderVal = 310;
+const int PT_moveDown_afterDettach_EncoderVal = 300;
 
 const int msForMultiTasking = 50;
 
