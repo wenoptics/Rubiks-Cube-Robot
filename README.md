@@ -25,13 +25,17 @@ atomic operations, which essentially means these are the minimal operations divi
 <br>(cube layer operation)
 </p>
 
-
 All methods of rotation of the Rubik's Cube, including a Rubik's Cube solution in an out-of-order state, are collections 
 of atomic operations.
 
 The cube fourth-order cube can create a coordinate system of three orthogonal axes in space, then the atomic operation 
 can also be expressed as a rotation operation on a layer on one of the three axes.
 For this project, I will use the Cartesian right-handed coordinate system.
+
+<p align="center">
+<img src="doc/WINWORD_2018-11-29_17-19-28.png"/>
+<br>(Cartesian right-handed coordinate system)
+</p>
 
 ### Movement Design
 
@@ -48,13 +52,20 @@ a rotating operation.
 
 In practice, I make this axis the `y` axis. The figure shows the layer rotation on Y-axis.
 
+<p align="center">
+<img src="doc/WINWORD_2018-11-29_17-19-12.png"/>
+<br>(cube layer operation)
+</p>
 ![the layer rotation on Y-axis]()
 
 
 2) Design the "`layer selection`" mechanism (B) so that the Cube and the layer rotation mechanism (A) can move relative to 
 each other, and is able to rotate the n layers of the shaft (Y axis) up to the top face.
 
-![The cube moves upward relative to the layer-turning mechanism, and the top layers can be rotated together]()
+<p align="center">
+<img src="doc/WINWORD_2018-11-29_17-19-37.png"/>
+<br>(The cube moves upward relative to the layer-turning mechanism, and the top layers can be rotated together)
+</p>
 
 
 Specifically, I denote rotating +90° as `lRt(n)`; the rotation -90° is denoted as \bar{lRt}(n).
@@ -65,7 +76,10 @@ So far, all layer atom operations in the direction of one axis (i.e. the Y axis)
 3) Design the Cube X-axis turning mechanism (`C`) so that the Cube can be flipped around its X axis. Denoted the symbol 
 of flipping the cube around the X axis by +90° as `cRt(x)`.
 
-![the flip operation on X axis]()
+<p align="center">
+<img src="doc/WINWORD_2018-11-29_17-19-52.png"/>
+<br>(the flip operation on X axis)
+</p>
 
 
 In particular, layer rotation of the layer `n=4` is equivalent to rotation of the cube around the Y axis, i.e.
