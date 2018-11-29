@@ -20,10 +20,10 @@ Goal: Design combination of mechanisms to accomplish any valid operation in a Ru
 Any valid operation is composed of rotations of certain layer of the cube. I will call these rotation operations 
 atomic operations, which essentially means these are the minimal operations dividable. 
 
-<center>
+<div style="text-align:center">
 <img src="doc/WINWORD_2018-11-29_17-19-12.png"/>
 <p>(cube layer operation)</p>
-</center>
+</div>
 
 
 All methods of rotation of the Rubik's Cube, including a Rubik's Cube solution in an out-of-order state, are collections 
