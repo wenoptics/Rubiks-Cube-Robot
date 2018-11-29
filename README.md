@@ -98,3 +98,4 @@ The block diagram of the robot is shown below.
 
 ![block diagram of the system]()
 
+$\beta$ $\infty$
