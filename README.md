@@ -20,7 +20,10 @@ Goal: Design combination of mechanisms to accomplish any valid operation in a Ru
 Any valid operation is composed of rotations of certain layer of the cube. I will call these rotation operations 
 atomic operations, which essentially means these are the minimal operations dividable. 
 
-![cube layer operation]()
+<center>
+<img src="doc/WINWORD_2018-11-29_17-19-12.png"/>
+<p>(cube layer operation)</p>
+</center>
 
 
 All methods of rotation of the Rubik's Cube, including a Rubik's Cube solution in an out-of-order state, are collections 
@@ -91,5 +94,7 @@ USB camera and run color recognition with OpenCV. To make it simple, I decide to
 processed on a PC, and the color recognition result will be transmitted to the NXT controller via Bluetooth, 
 the electromechanical driver and solver algorithms will be run on the NXT controller. 
 
-The block diagram of the system is shown below.
+The block diagram of the robot is shown below.
+
+![block diagram of the system]()
 
