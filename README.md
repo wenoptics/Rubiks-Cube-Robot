@@ -93,3 +93,4 @@ the electromechanical driver and solver algorithms will be run on the NXT contro
 
 The block diagram of the system is shown below.
 
+$\beta$ $\infty$
