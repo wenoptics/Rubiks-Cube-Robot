@@ -5,6 +5,8 @@ does nothing but solves a `4x4x4 Rubik's Cube`.
 
 :hammer: Crafted with [LEGO Mindstorms](https://www.lego.com/en-us/mindstorms/products/mindstorms-ev3-31313).
 
+For the OpenCV part, see [wenoptics/Rubiks-Revenge-OpenCV](https://github.com/wenoptics/Rubiks-Revenge-OpenCV)
+
 ## What
 
 The project was completed using parts from LEGO Mindstorms NXT. It's limited to used only 3 motors (actuators)
