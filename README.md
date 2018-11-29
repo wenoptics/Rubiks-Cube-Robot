@@ -10,22 +10,27 @@ does nothing but solves a `4x4x4 Rubik's Cube`.
 The project was completed using parts from LEGO Mindstorms NXT. It's limited to used only 3 motors (actuators)
 and complete the task of solving a 4x4x4 Rubik's Cube (aka Rubik's Revenge) from any valid state.
 
+## TL;DR (Show me videos!)
+
 <p align="center">
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=qqWS-qgw8oM
 " target="_blank"><img src="http://img.youtube.com/vi/qqWS-qgw8oM/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+<br>YouTube
 </p>
 
 <p align="center">
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=JE0w4DwlktM
 " target="_blank"><img src="http://img.youtube.com/vi/JE0w4DwlktM/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+<br>YouTube
 </p>
 
 <p align="center">
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=JnoVRYcmtBo
 " target="_blank"><img src="http://img.youtube.com/vi/JnoVRYcmtBo/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+<br>YouTube
 </p>
 
 ## Design
