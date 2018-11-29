@@ -22,8 +22,8 @@ atomic operations, which essentially means these are the minimal operations divi
 
 <p align="center">
 <img src="doc/WINWORD_2018-11-29_17-19-12.png"/>
+<br>(cube layer operation)
 </p>
-<p align="center">(cube layer operation)</p>
 
 
 All methods of rotation of the Rubik's Cube, including a Rubik's Cube solution in an out-of-order state, are collections 
