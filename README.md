@@ -81,8 +81,6 @@ In practice, I make this axis the `y` axis. The figure shows the layer rotation 
 <img src="doc/WINWORD_2018-11-29_17-19-37.png"/>
 <br>(cube layer operation)
 </p>
-![the layer rotation on Y-axis]()
-
 
 2) Design the "`layer selection`" mechanism (B) so that the Cube and the layer rotation mechanism (A) can move relative to 
 each other, and is able to rotate the n layers of the shaft (Y axis) up to the top face.
